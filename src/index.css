@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-telecom-navy: #0F172A;
+  --color-primary: #005CAD;
+  --color-primary-container: #0E75D6;
+  --color-on-primary-container: #FEFCFF;
+  --color-primary-fixed: #D5E3FF;
+
+  --color-surface-canvas: #F8FAFC;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #F0F3FF;
+  --color-surface-container: #E7EEFF;
+  --color-surface-container-high: #DEE8FF;
+  --color-surface-container-highest: #D8E3FB;
+
+  --color-on-surface: #111C2D;
+  --color-on-surface-variant: #414752;
+  --color-outline: #717784;
+  --color-outline-variant: #C1C6D5;
+
+  --color-signal-emerald: #059669;
+  --color-solar-amber: #F97316;
+  --color-whatsapp-brand: #25D366;
+
+  --color-tertiary-fixed: #85F8C4;
+  --color-on-tertiary-fixed: #002114;
+  --color-tertiary-container: #00855D;
+
+  --color-secondary-fixed: #FFDBCA;
+  --color-on-secondary-fixed: #341100;
+
+  --font-sans: "Inter", sans-serif;
+  --color-brand-cyan: #1CA9E0;
+  --color-signal-emerald: #059669;
+  
+}
+
+.bg-gradient-signal {
+  background: linear-gradient(120deg, #0F172A 0%, #1CA9E0 65%, #F8FAFC 100%);
+}
+
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: pageFadeIn 0.4s ease-out;
+}

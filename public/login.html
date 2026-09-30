@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARTHUR KAMBOU - WiFi</title>
+<style>
+  :root{
+    --navy:#0d1b4c;
+    --blue:#1a56db;
+    --orange:#ff9d1f;
+    --orange-dark:#f5850a;
+    --gray-bg:#f2f4f8;
+    --text-gray:#6b7280;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI',Helvetica,Arial,sans-serif;
+    background:#e5e8ef;
+    display:flex;
+    justify-content:center;
+    padding:0;
+    min-height:100vh;
+  }
+  .phone{
+    width:360px;
+    max-width:100vw;
+    min-height:100vh;
+    background:var(--gray-bg);
+    box-shadow:0 0 40px rgba(0,0,0,.15);
+    position:relative;
+  }
+
+  .header{
+    background:var(--navy);
+    color:#fff;
+    padding:18px 20px 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+  }
+  .header .title{
+    font-size:14.5px;
+    font-weight:600;
+  }
+  .header .brand{
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:.3px;
+    margin-top:2px;
+  }
+  .header .dots{
+    font-size:20px;
+    opacity:.85;
+    cursor:pointer;
+  }
+
+  .body-pad{padding:22px 18px 30px;}
+
+  .mt-error{
+    background:#ffe6e6;
+    border:1px solid #ffb3b3;
+    color:#c0392b;
+    font-size:12.5px;
+    font-weight:700;
+    text-align:center;
+    padding:10px;
+    border-radius:10px;
+    margin-bottom:16px;
+  }
+
+  .code-input{
+    width:100%;
+    text-align:center;
+    padding:18px 14px;
+    border-radius:14px;
+    border:1px solid #e2e5ee;
+    background:#fff;
+    font-size:16px;
+    letter-spacing:3px;
+    color:#333;
+    font-family:monospace;
+    box-shadow:0 4px 14px rgba(0,0,0,.05);
+    margin-bottom:22px;
+    outline:none;
+  }
+  .code-input:focus{border-color:var(--blue);}
+
+  .btn-connect{
+    width:100%;
+    padding:16px 0;
+    background:linear-gradient(135deg,var(--orange),var(--orange-dark));
+    border:none;
+    border-radius:14px;
+    color:#fff;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.5px;
+    cursor:pointer;
+    margin-bottom:28px;
+    box-shadow:0 10px 22px rgba(255,157,31,.4);
+    transition:transform .15s ease;
+  }
+  .btn-connect:hover{transform:translateY(-2px);}
+  .btn-connect:active{transform:translateY(0);}
+
+  .tarifs-card{
+    background:#fff;
+    border-radius:16px;
+    padding:20px 18px;
+    box-shadow:0 4px 16px rgba(0,0,0,.05);
+    margin-bottom:22px;
+  }
+  .tarifs-title{
+    text-align:center;
+    font-size:12.5px;
+    font-weight:800;
+    color:#9aa0ad;
+    letter-spacing:1px;
+    margin-bottom:16px;
+  }
+  .tarif-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 0;
+    border-bottom:1px dashed #e5e7ee;
+  }
+  .tarif-row:last-child{border-bottom:none;}
+  .tarif-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:14px;
+    font-weight:600;
+    color:#2a2f3a;
+  }
+  .tarif-left .emoji{font-size:16px;}
+  .tarif-price{
+    font-weight:800;
+    font-size:15px;
+    color:var(--blue);
+  }
+  .tarif-price.gold{color:var(--orange-dark);}
+
+  .sale-section{
+    background:#fff;
+    border-radius:16px;
+    padding:18px;
+    margin-bottom:22px;
+    box-shadow:0 4px 16px rgba(0,0,0,.05);
+  }
+  .sale-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:800;
+    font-size:13.5px;
+    color:var(--blue);
+    letter-spacing:.3px;
+    margin-bottom:14px;
+  }
+  .sale-visual{
+    height:150px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#dfe9ff 0%, #eef3ff 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    position:relative;
+    overflow:hidden;
+  }
+  .sale-visual .device{
+    font-size:52px;
+    filter:drop-shadow(0 8px 10px rgba(0,0,0,.15));
+  }
+  .sale-visual .device.tilt{transform:rotate(-12deg);}
+  .sale-visual .device.tilt2{transform:rotate(10deg);}
+
+  .contact-section{
+    text-align:center;
+    padding:20px 10px 10px;
+  }
+  .contact-section p{
+    font-size:13px;
+    color:var(--text-gray);
+    margin-bottom:8px;
+  }
+  .contact-number{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-size:19px;
+    font-weight:800;
+    color:var(--blue);
+  }
+</style>
+</head>
+<body>
+
+<div class="phone">
+
+  <div class="header">
+    <div>
+      <div class="title">Se connecter à</div>
+      <div class="brand">ARTHUR KAMBOU</div>
+    </div>
+    <div class="dots">⋮</div>
+  </div>
+
+  <div class="body-pad">
+
+    $(if error)
+    <div class="mt-error">$(error)</div>
+    $(endif)
+
+    <form name="sendin" action="$(link-login-only)" method="post" onsubmit="return prepLogin();">
+      <input type="hidden" name="dst" value="$(link-orig)">
+      <input type="hidden" name="popup" value="$(popup)">
+      <input type="hidden" id="password" name="password" value="">
+
+      <input type="text" id="username" name="username" class="code-input" placeholder="Ex : 8a4kz" autocomplete="off" required>
+
+      <button type="submit" class="btn-connect">SE CONNECTER 🚀</button>
+    </form>
+
+    <div class="tarifs-card">
+      <div class="tarifs-title">NOS TARIFS WIFI</div>
+
+      <div class="tarif-row">
+        <div class="tarif-left"><span class="emoji">⏱️</span> 1 Jour</div>
+        <div class="tarif-price">200 F</div>
+      </div>
+      <div class="tarif-row">
+        <div class="tarif-left"><span class="emoji">⏱️</span> 2 Jours</div>
+        <div class="tarif-price">300 F</div>
+      </div>
+      <div class="tarif-row">
+        <div class="tarif-left"><span class="emoji">📅</span> 5 Jours</div>
+        <div class="tarif-price">500 F</div>
+      </div>
+      <div class="tarif-row">
+        <div class="tarif-left"><span class="emoji">🏆</span> 1 Mois</div>
+        <div class="tarif-price gold">3000 F</div>
+      </div>
+    </div>
+
+    <div class="sale-section">
+      <div class="sale-title">📱 VENTE SMARTPHONES &amp; TABLETTES</div>
+      <div class="sale-visual">
+        <span class="device tilt">📱</span>
+        <span class="device tilt2">📲</span>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <p>Besoin d'un code ou d'un téléphone ?</p>
+      <div class="contact-number">📞 72 90 66 38</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function prepLogin(){
+  var user = document.getElementById('username').value.trim();
+  document.getElementById('password').value = user;
+  return true;
+}
+
+// Nettoyage visuel pour la prévisualisation dans un navigateur classique.
+// Sur le vrai routeur MikroTik, ces balises $(if error)/$(endif)/$(error)
+// sont remplacées côté serveur AVANT l'envoi de la page : ce script ne
+// trouve alors rien à nettoyer et ne change donc rien au fonctionnement réel.
+(function cleanMikrotikTags(){
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  var toRemove = [];
+  while (walker.nextNode()) {
+    var node = walker.currentNode;
+    if (/\$\(if\s+error\)|\$\(endif\)/.test(node.nodeValue)) {
+      toRemove.push(node);
+    }
+  }
+  toRemove.forEach(function(n){ if(n.parentNode) n.parentNode.removeChild(n); });
+
+  var errBox = document.querySelector('.mt-error');
+  if (errBox && errBox.textContent.indexOf('$(error)') !== -1) {
+    errBox.remove();
+  }
+})();
+</script>
+
+</body>
+</html>
