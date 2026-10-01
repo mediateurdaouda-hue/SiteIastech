@@ -10,34 +10,43 @@ function ProductsSection() {
         </div>
 
         <div className="space-y-10">
-          {products.map((p) => (
+          {products.map((p, i) => (
             <div
               key={p.name}
               data-aos="zoom-in"
-              className="bg-gradient-signal rounded-2xl overflow-hidden shadow-md grid md:grid-cols-2 items-center gap-8 p-6 md:p-10"
+              className="bg-gradient-signal rounded-3xl overflow-hidden shadow-[0_10px_30px_-12px_rgba(30,60,120,0.35)] grid md:grid-cols-2 items-center gap-8 p-6 md:p-10"
             >
-              {/* Texte à gauche */}
-              <div data-aos="fade-right" data-aos-delay="150" className="flex flex-col items-start">
-                <div className="w-14 h-14 rounded-xl bg-white/15 flex items-center justify-center mb-5">
-                  <span className="material-symbols-outlined text-white text-[28px]">{p.icon}</span>
+              {/* Texte (à droite une carte sur deux pour varier le rythme) */}
+              <div
+                data-aos={i % 2 === 0 ? "fade-right" : "fade-left"}
+                data-aos-delay="150"
+                className={`flex flex-col items-start ${i % 2 === 1 ? "md:order-2" : ""}`}
+              >
+                <div className="w-16 h-16 rounded-full bg-white/15 flex items-center justify-center mb-5">
+                  <span className="material-symbols-outlined text-white text-[30px]">{p.icon}</span>
                 </div>
-                <span className="text-xs uppercase tracking-wider text-white/70 font-bold mb-1">{p.tagline}</span>
+                <span className="text-sm text-white/80 font-semibold mb-1">{p.tagline}</span>
                 <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-3">{p.headline}</h3>
                 <p className="text-white/80 text-sm md:text-base leading-relaxed mb-6">{p.description}</p>
                 <a
                   href={p.link}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white text-telecom-navy text-sm font-semibold hover:bg-surface-container-low transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-telecom-navy text-sm font-bold hover:bg-surface-container-low transition-colors"
                 >
                   En savoir plus
+                  <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </a>
               </div>
 
-              {/* Image à droite */}
-              <div data-aos="fade-left" data-aos-delay="300" className="w-full bg-white/10 p-3 rounded-xl">
+              {/* Image */}
+              <div
+                data-aos={i % 2 === 0 ? "fade-left" : "fade-right"}
+                data-aos-delay="300"
+                className={`w-full bg-white/10 p-3 rounded-2xl ${i % 2 === 1 ? "md:order-1" : ""}`}
+              >
                 <img
                   src={p.image}
                   alt={`Aperçu de ${p.name}`}
-                  className="w-full rounded-lg shadow-lg border border-white/20 object-cover object-top max-h-80"
+                  className="w-full rounded-xl shadow-lg border border-white/20 object-cover object-top max-h-80"
                 />
               </div>
             </div>

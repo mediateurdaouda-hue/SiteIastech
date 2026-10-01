@@ -11,28 +11,42 @@ function Services() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* ── Cartes : max-w-5xl + gap-5 + image h-36 + p-5 = taille moyenne ── */}
+      <section className="max-w-5xl mx-auto px-6 py-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, i) => (
-            <div key={s.title} data-aos="fade-up" data-aos-delay={i * 100} className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow flex flex-col overflow-hidden">
-
-              <div className="w-full h-44 bg-surface-container-low overflow-hidden">
-                <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
+            <div
+              key={s.title}
+              data-aos="fade-up"
+              data-aos-delay={i * 100}
+              className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-brand-cyan/40 transition-all duration-300 flex flex-col overflow-hidden"
+            >
+              {/* Image plus courte (h-44 → h-36) + léger zoom au survol */}
+              <div className="w-full h-36 bg-surface-container-low overflow-hidden">
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
 
-              <div className="p-6 flex flex-col flex-1">
-                <div className="w-12 h-12 rounded-lg bg-surface-container-low text-brand-cyan flex items-center justify-center mb-4 -mt-12 relative z-10 bg-white shadow-sm">
-                  <span className="material-symbols-outlined text-[26px]">{s.icon}</span>
+              <div className="p-5 flex flex-col flex-1">
+                {/* Badge icône plus petit, à cheval sur l'image */}
+                <div className="w-10 h-10 rounded-xl bg-white text-brand-cyan flex items-center justify-center mb-3 -mt-10 relative z-10 shadow-md ring-1 ring-slate-100">
+                  <span className="material-symbols-outlined text-[22px]">{s.icon}</span>
                 </div>
 
-                <span className="inline-block w-fit px-2.5 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant text-xs font-semibold mb-2">
+                <span className="inline-block w-fit px-2.5 py-0.5 rounded-full bg-brand-cyan/10 text-brand-cyan text-xs font-semibold mb-2">
                   {s.tag}
                 </span>
 
-                <h3 className="font-bold text-telecom-navy text-lg mb-2">{s.title}</h3>
-                <p className="text-on-surface-variant text-sm leading-relaxed mb-4">{s.text}</p>
+                <h3 className="font-bold text-telecom-navy text-base leading-snug mb-1.5">{s.title}</h3>
 
-                <ul className="flex flex-col gap-2 mt-auto text-sm text-outline">
+                {/* 3 lignes max → toutes les cartes gardent la même hauteur */}
+                <p className="text-on-surface-variant text-[13px] leading-relaxed mb-3 line-clamp-3">{s.text}</p>
+
+                <ul className="flex flex-col gap-1.5 mt-auto pt-3 border-t border-slate-100 text-[13px] text-outline">
                   {s.points.map((p) => (
                     <li key={p} className="flex items-center gap-2">
                       <span className="material-symbols-outlined text-brand-cyan text-[16px]">check</span>

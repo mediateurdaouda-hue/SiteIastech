@@ -55,3 +55,18 @@
 .page-transition {
   animation: pageFadeIn 0.4s ease-out;
 }
+/* Cache l'interface de Google Traduction */
+.goog-te-banner-frame,
+iframe.skiptranslate,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-tooltip {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
